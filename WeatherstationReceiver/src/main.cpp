@@ -109,7 +109,7 @@ bool sendData(double tempf, int pressure, double humidity) {
   char str_temp_humidity[6];
   dtostrf(tempf, 4, 2, str_temp_tempf);
   dtostrf(humidity, 4, 2, str_temp_humidity);
-  sprintf(data, "GET /weatherstation/updateweatherstation.php?ID=IGARDERE6&PASSWORD=og0fq7lz&dateutc=now&tempf=%s&baromin=%d&humidity=%s&softwaretype=DIY_Weather_Station&action=updateraw HTTP/1.1",str_temp_tempf, pressure, str_temp_humidity);
+  sprintf(data, "GET /weatherstation/updateweatherstation.php?ID=IGARDERE6&PASSWORD=og0fq7lz&dateutc=now&tempf=%s&baromin=%d&humidity=%s&softwaretype=DIY_Weather_Station&action=updateraw HTTP/1.1",str_temp_tempf, (pressure*0.029529980164712), str_temp_humidity);
   Serial.println(data);
   client.println(data);
   client.print("Host: ");
